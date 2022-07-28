@@ -7,7 +7,7 @@ The 3 scripts that will be use are all present in the 'Script' folder in this pr
 ### Use in Unreal 5.0 
 
 > If you want to play the project in Virtual Reality, make take sure that your vr headset is ready and that steamvr is ready and connected to your vr device   
-> <img src="doc/images/steamVR.png" width='40%'>
+> <img src="doc/images/steamVR.PNG" width='40%'>
 
 #### **Load a Map**
 
