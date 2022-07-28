@@ -3,6 +3,70 @@
 ## How to use the project:
 
 The 3 scripts that will be use are all present in the 'Script' folder in this project
+***
+### Use in Unreal 5.0 
+
+> If you want to play the project in Virtual Reality, make take sure that your vr headset is ready and that steamvr is ready and connected to your vr device   
+> <img src="doc/images/steamVR.PNG" width='40%'>
+
+#### **Load a Map**
+
+If your map is not already loaded, open the 'content Drawer' bottom left, go to All->Content->experiments->name of the project you want to load->maps and then double click on the map with the same name as the project.
+> exemple to load Adream map the path is : All>Content>experiments>adream>maps>adream
+> <img src ="doc/images/loadMap.png" width='60%'>
+
+
+#### **In first person**
+
+#### *Controls:*
+| input  | action          |
+| :---------------: |:---------------:| 
+| z,w,arrowUp  |   move Forward        |  
+| s,arrowDown  | move Backward             |   
+| q,a,arrowLeft  | move Left       |   
+| d,arrowRight | move Right |
+|e | interact (Open door) |
+
+
+
+Select the 'FirstPersonCharacter' actor in your map (you can search it in the top right corner in 'Outliner')
+> <img src="doc/images/FisrtPerson_1.png" width='60%'>
+
+Once selected be sure to be on the composant 'FirstPersonCharacter (self)' (selected by default). Then in the search bar write player, there should be only one line name 'Auto Possess Player' set by default to 'Disabled', select 'Player 0'
+
+>   <img src="doc/images/auto_possess_player.png" width="60%" class="text-center"> 
+
+
+
+> It's is highly recommended to build before playing, to do so, go to the top bar, look for Build->Build all levels and white for it to be finished.   
+> <img src="doc\images\build_allLevels.png" width='100%'>
+
+
+To play you just have to click the green play button at the top of the map, you may want to changes mode if you have use VR before back to 'Selected Viewport', to do so click the 3 dot next to the 
+play button and select the mode, to leave the simulation press echap on your keyboard
+
+> <img src="doc\images\selected_viewport.png" width='40%'>
+
+
+
+
+#### **In VR**
+
+Be sure that the 'FirstPersonChracter' actor in your map 'Auto Possess Player' is set to 'Disabled' (it is by default, just if you use the first person mode don't forget to change it back).
+
+Launch vive wireless, connect your vr headset to vive by following the instruction.
+
+Once you are connected launch steam then steam vr, your headset should be detected by steam vr.
+
+If you unreal project was open before vive, relaunch it.
+
+On unreal if your map is not already loaded, open the 'content Drawer' bottom left, go to All->Content->experiments->name of the project you want to load->maps and then double click on the map with the same name as the project.
+
+Click one the 3 dot next to the green play button on top of the map and select the mode VR Preview.
+
+The game should launch by itself, to stop it press echap on your keyboard on the relaunch it use the green play button
+
+
 
 ### Export your blender
 
@@ -44,32 +108,3 @@ To have the outline in VR, select the PosProcessVolume actor (you can search it 
 
 If you want to update the scene, just go to the 'empty' map in the maps folder. Delete all your level and sublevel of the scene and use the "import.py" script
 
-### Use your Unreal
-
-#### In first person
-
-If your map is not already loaded, open the 'content Drawer' bottom left, go to All->Content->experiments->name of the project you want to load->maps and then double click on the map with the same name as the project.
-
-Select the 'FirstPersonCharacter' actor in your map (you can search it in the top right corner in 'Outliner')
-
-Once selected be sure to be on the composant 'FirstPersonCharacter (self)' (selected by default). Then in the search bar write player, there should be only one line name 'Auto Possess Player' set by default to 'Disabled', select 'Player 0'
-
-> It's is highly recommended to build before playing, to do so, go to the top bar, look for Build->Build all levels and white for it to be finished.
-
-To play you just have to click the green play button at the top of the map, you may want to changes mode if you have use VR before back to 'Selected Viewport', to do so click the 3 dot next to the play button and select the mode, to leave the simulation press echap on your keyboard
-
-#### In VR
-
-Be sure that the 'FirstPersonChracter' actor in your map 'Auto Possess Player' is set to 'Disabled' (it is by default, just if you use the first person mode don't forget to change it back).
-
-Launch vive wireless, connect your vr headset to vive by following the instruction.
-
-Once you are connected launch steam then steam vr, your headset should be detected by steam vr.
-
-If you unreal project was open before vive, relaunch it.
-
-On unreal if your map is not already loaded, open the 'content Drawer' bottom left, go to All->Content->experiments->name of the project you want to load->maps and then double click on the map with the same name as the project.
-
-Click one the 3 dot next to the green play button on top of the map and select the mode VR Preview.
-
-The game should launch by itself, to stop it press echap on your keyboard on the relaunch it use the green play button
