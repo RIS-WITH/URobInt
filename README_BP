@@ -1,0 +1,62 @@
+# URobInt
+
+## How to import blueprint in the map:
+
+if your blueprint have only one asset to modify : 
+
+				actor=unreal.EditorLevelLibrary.spawn_actor_from_class(*Your blueprint path : example here* :unreal.EditorAssetLibrary.load_blueprint_class('/Game/experiments/blueprints/BP_grapable_Free.BP_grapable_Free'), 
+				(dic_actor['x']*100 , dic_actor['y']*(-100) , dic_actor['z']*100) , (dic_actor['ry']*(-180/math.pi) , dic_actor['rz']*(-180/math.pi) , dic_actor['rx']*(180/math.pi)))
+				actor.set_folder_path(path_actor_level)
+				actor.set_actor_label(actual_dic)
+				actor.root_component.set_editor_property('relative_scale3d' , (dic_actor['scale x'] , dic_actor['scale y'] , dic_actor['scale z'])) *// if you want to adjust the scale not mandatory*
+				all_actors = unreal.EditorLevelLibrary.get_all_level_actors_components()
+				for blueprint_component in all_actors:
+					actor_owner=blueprint_component.get_owner()
+					if actor_owner:	
+						if actual_dic == actor_owner.get_actor_label():
+							blueprint_component.set_editor_property("static_mesh",unreal.EditorAssetLibrary.load_asset(path_mesh + path_to_mesh+ "/" + dic_actor['mesh']))	
+				unreal.EditorLevelLibrary.save_all_dirty_levels()
+
+with the condition in wich case you want to do this, it will be something like : elif "box" in path_actor_level : 
+just under the: if 'mesh' in dic_actor :   (first line in createActors)
+
+
+if your blueprint have multiply asset to modify : 
+
+		actor=unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.EditorAssetLibrary.load_blueprint_class(*Your blueprint path : example here*  '/Game/experiments/blueprints/elevator.elevator') , 
+		(dic_actor[*the mest you want to use as the position reference of the blueprint he ']['x']*100 , dic_actor['the mest you want to use as the position reference of the blueprint here it is :*'gf_elevator']['x']*100 , dic_actor['gf_elevator']['y']*(-100) , dic_actor['gf_elevator']['z']*100) , (dic_actor['gf_elevator']['ry']*(-180/math.pi) , dic_actor['gf_elevator']['rz']*(-180/math.pi) , dic_actor['gf_elevator']['rx']*(180/math.pi) ))								
+		actor.set_folder_path(path_actor_level)
+		actor.set_actor_label(actual_dic)
+		list = []
+		i = 0
+		while i == 0:
+			i = 1
+			all_actors = unreal.EditorLevelLibrary.get_all_level_actors_components()		
+			for blueprint_component in all_actors:
+				actor_owner = blueprint_component.get_owner()				
+				if actor_owner:
+					if actual_dic in actor_owner.get_actor_label() *and here we want to modify a static mesh component adjust depending on the type of component you want to modify* 'StaticMesh' in str(blueprint_component):
+						check_list = str(blueprint_component).split( *replace 'elevator' by the name of your blueprint* 'PersistentLevel.elevator_C')[1]
+						check_list = str(check_list).split(".")[1]
+						check_list = str(check_list).split("'")[0]						
+						if check_list not in list:							
+							i=0
+							element_list = str(blueprint_component).split(*replace 'elevator' by the name of your blueprint* 'PersistentLevel.elevator_C')[1]
+							element_list = str(element_list).split(".")[1]
+							element_list = str(element_list).split("'")[0]
+							list.append(element_list)
+							if 'interior' in str(blueprint_component) *replace interior by the name of the blueprint_component you want to modify*:
+								blueprint_component.set_editor_property("static_mesh",unreal.EditorAssetLibrary.load_asset(path_mesh + "/elevator/" + dic_actor[*the place of the mesh in your yaml here it is :*'interior']['mesh']))			
+							elif 'top door half 1' in str(blueprint_component) *replace interior by the name of the blueprint_component you want to modify*:
+								blueprint_component.set_editor_property("static_mesh",unreal.EditorAssetLibrary.load_asset(path_mesh + "/elevator/" + dic_actor[*the place of the mesh in your yaml here it is :* 'door_exterior_top_001']['mesh']))								
+			unreal.EditorLevelLibrary.save_all_dirty_levels()
+
+For the elevator if you want to go up press 1 on on numerique pad and 0 to go to the ground floor. Do not get to close to the elevator or he might not come.
+
+import_asset: will update the mesh of your mesh already present with the new one but will not change the function your modify in unreal like their physics and materials, auto update on the map no need to recreate it.
+
+import : to debug you don't have to create delete the map each time, if for example your import.py lag at the map 5 because you modify it you can just relaunch it to debug it and once it rework be sure to delete all map and relaunch it before trying it out because the map will stack on each other and make you lag
+
+if you want to have an hdri in your world the easier way is to duplicate one existing like the one in adream, create a folder 'hdri' in your project and put your hdri duplicate in here, double click on him and modify the cubemap with the one you want.
+
+for the handle if you want to use door in your project, create a son of the type of handle you want to use movable or nonmovable, then rename the blueprint : BP_handle(you can add other word just keep the word handle in the blueprint)_movable_YourProjectNameFolder or BP_wrist(you can add other word just keep the word wrist in the blueprint)_nonmovable_YourProjectNameFolder

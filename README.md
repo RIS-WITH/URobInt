@@ -85,6 +85,8 @@ Click one the 3 dot next to the green play button on top of the map and select t
 
 The game should launch by itself, to stop it press echap on your keyboard on the relaunch it use the green play button
 
+> If you can't teleport but still see the link to the tp, echap the game mouv a bit the NavMeshBoundsVolume in the map, it should fix the problem (be sure to be inside the NavMeshBoundsVolume)
+
 
 
 
