@@ -6,14 +6,37 @@ The 3 scripts that will be use are all present in the 'Script' folder in this pr
 ***
 ### Use in Unreal 5.0 
 
-> If you want to play the project in Virtual Reality, make take sure that your vr headset is ready and that steamvr is ready and connected to your vr device   
+> If you want to play the project in Virtual Reality : 
+> 1) First start the wireless link if needed like Vive Wireless   
+> <img src="doc\images\vive_wireless.png" width='40%'>
+> 1) Start steamVR   
 > <img src="doc/images/steamVR.PNG" width='40%'>
+> 1) if all this stuff ready : launch the project in Unreal Engine. 
+
 
 #### **Load a Map**
 
 If your map is not already loaded, open the 'content Drawer' bottom left, go to All->Content->experiments->name of the project you want to load->maps and then double click on the map with the same name as the project.
+
+
 > exemple to load Adream map the path is : All>Content>experiments>adream>maps>adream
 > <img src ="doc/images/loadMap.png" width='60%'>
+
+**Build the map**
+> It's is highly recommended to build before playing, to do so, go to the top bar, look for Build->Build all levels and white for it to be finished.   
+> <img src="doc\images\build_allLevels.png" width='100%'>
+> At the start of the build process errors and warning like this will pop up : 
+> <img src="doc\images\issue_during_build.png" width='60%'>  
+> But wait until the build process finish, you can follow the progress in the right bottom corner 
+> <img src="doc\images\build_process.png" width="50%">  
+> When the build process is finished, the previous error disappears.  
+
+> Disregard the warnings due to BP_door_*, they are related to the automatic import process. 
+
+
+
+
+
 
 
 #### **In first person**
@@ -38,16 +61,12 @@ Once selected be sure to be on the composant 'FirstPersonCharacter (self)' (sele
 
 
 
-> It's is highly recommended to build before playing, to do so, go to the top bar, look for Build->Build all levels and white for it to be finished.   
-> <img src="doc\images\build_allLevels.png" width='100%'>
 
 
 To play you just have to click the green play button at the top of the map, you may want to changes mode if you have use VR before back to 'Selected Viewport', to do so click the 3 dot next to the 
 play button and select the mode, to leave the simulation press echap on your keyboard
 
 > <img src="doc\images\selected_viewport.png" width='40%'>
-
-
 
 
 #### **In VR**
@@ -65,6 +84,10 @@ On unreal if your map is not already loaded, open the 'content Drawer' bottom le
 Click one the 3 dot next to the green play button on top of the map and select the mode VR Preview.
 
 The game should launch by itself, to stop it press echap on your keyboard on the relaunch it use the green play button
+
+
+
+
 
 
 
